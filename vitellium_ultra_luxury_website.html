@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VITELLIUM™</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: linear-gradient(135deg, #d4af37, #f5e6c4);
+  --gold-solid: #d4af37;
+  --bg: #050505;
+  --glass: rgba(255,255,255,0.05);
+  --text: #eee;
+  --muted: #888;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+h1,h2,h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width:100%;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  backdrop-filter: blur(10px);
+  z-index:1000;
+}
+
+nav h1 {
+  color:#d4af37;
+  font-size:20px;
+}
+
+nav a {
+  margin-left:20px;
+  text-decoration:none;
+  color:var(--muted);
+}
+
+/* HERO */
+.hero {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background: radial-gradient(circle at center, #111, #000);
+}
+
+.hero h1 {
+  font-size:72px;
+  background: var(--gold);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p { color:var(--muted); margin-top:15px; }
+
+.btn {
+  margin-top:30px;
+  padding:14px 30px;
+  border:1px solid var(--gold-solid);
+  color:var(--gold-solid);
+  background:transparent;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.btn:hover {
+  background: var(--gold-solid);
+  color:black;
+  transform: translateY(-3px);
+}
+
+/* GLASS SECTION */
+.section {
+  padding:120px 10%;
+  text-align:center;
+}
+
+.glass {
+  background: var(--glass);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+  padding:60px;
+  border-radius:20px;
+}
+
+.title {
+  font-size:40px;
+  margin-bottom:20px;
+  color:#d4af37;
+}
+
+.text {
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+}
+
+/* PRODUCTS */
+.products {
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.card {
+  width:300px;
+  padding:40px;
+  border-radius:20px;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color:#d4af37;
+}
+
+.price {
+  margin:15px 0;
+  color:#d4af37;
+}
+
+/* SCROLL ANIMATION */
+.fade {
+  opacity:0;
+  transform: translateY(40px);
+  transition:1s;
+}
+
+.fade.show {
+  opacity:1;
+  transform: translateY(0);
+}
+
+footer {
+  text-align:center;
+  padding:60px;
+  color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>VITELLIUM™</h1>
+  <div>
+    <a href="#">About</a>
+    <a href="#">Standards</a>
+    <a href="#">Shop</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>VITELLIUM™</h1>
+  <p>Precision Nutrition, Naturally Engineered.</p>
+  <p>Produced under defined standards for nutrient density, not volume.</p>
+  <button class="btn">Request Allocation</button>
+</section>
+
+<section class="section fade">
+  <div class="glass">
+    <h2 class="title">Not All Eggs Are Created Equal</h2>
+    <p class="text">Most eggs are produced for efficiency. VITELLIUM™ is produced differently — engineered for consistency, transparency, and nutrient density.</p>
+  </div>
+</section>
+
+<section class="section fade">
+  <h2 class="title">The Collection</h2>
+  <div class="products">
+    <div class="card">
+      <h3>VITELLIUM 24</h3>
+      <div class="price">$78 / delivery</div>
+      <button class="btn">Subscribe</button>
+    </div>
+
+    <div class="card">
+      <h3>VITELLIUM 30</h3>
+      <div class="price">$100 / delivery</div>
+      <button class="btn">Subscribe</button>
+    </div>
+
+    <div class="card">
+      <h3>VITELLIUM PRIME</h3>
+      <div class="price">Application only</div>
+      <button class="btn">Request Access</button>
+    </div>
+  </div>
+</section>
+
+<section class="section fade">
+  <h2 class="title">Allocation Is Limited</h2>
+  <p class="text">Production is intentionally capped. Next release: 120 boxes.</p>
+  <button class="btn">Join Private List</button>
+</section>
+
+<footer>
+© VITELLIUM™ — Ultra Luxury Nutrition
+</footer>
+
+<script>
+
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
